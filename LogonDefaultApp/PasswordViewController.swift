@@ -10,17 +10,15 @@ import UIKit
 
 class PasswordViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var passwordButton: UIButton!
+    @IBOutlet weak var passwordButton: UIButton!{
+        didSet {
+            passwordButton.layer.cornerRadius = 15
+        }
+    }
     @IBOutlet weak var usernameField: UITextField!{
         didSet {
             usernameField.delegate = self
         }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        passwordButton.layer.cornerRadius = 8
     }
 
     @IBAction func getPassword(_ sender: Any) {

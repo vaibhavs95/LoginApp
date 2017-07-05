@@ -11,7 +11,11 @@ import UIKit
 class SignUpViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!{
+        didSet {
+            signUpButton.layer.cornerRadius = 15
+        }
+    }
     @IBOutlet weak var firstNameTextField: UITextField! {
         didSet {
             firstNameTextField.delegate = self
@@ -42,13 +46,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
             confirmPasswordField.delegate = self
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        signUpButton.layer.cornerRadius = 8
-    }
-
 
     @IBAction func signUpAction(_ sender: Any) {
         guard let firstName = firstNameTextField.text,
@@ -113,7 +110,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         animation.repeatCount = count ?? 5
         animation.duration = (duration ?? 0.1)/TimeInterval(animation.repeatCount)
         animation.autoreverses = true
-        animation.byValue = translation ?? -10
+        animation.byValue = translation ?? -7
         signUpButton.layer.add(animation, forKey: "shake")
     }
 
@@ -133,14 +130,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         default:
             textField.resignFirstResponder()
             signUpAction(signUpButton)
-            // TODO: dismiss keyboard
-        }
-        return true
-    }
-
-    func validation (_ regex: String, _ evaluateWith: String) -> Bool{
-        if !NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: evaluateWith){
-            return false
         }
         return true
     }

@@ -24,5 +24,12 @@ extension UIViewController {
         }
         present(alertController, animated: true)
     }
+
+    func validation (_ regex: String, _ evaluateWith: String) -> Bool{
+        if !NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: evaluateWith){
+            return false
+        }
+        return true
+    }
 }
 

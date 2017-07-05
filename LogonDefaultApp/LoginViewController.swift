@@ -33,7 +33,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton! {
         didSet {
             loginButton.isEnabled = false
-            loginButton.layer.cornerRadius = 8
+            loginButton.layer.cornerRadius = 15
             loginButton.backgroundColor = .lightGray
         }
     }
@@ -45,10 +45,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func loginButtonAction(_ sender: Any) {
 
-        guard let username = usernameTextField.text else {
+        guard let username = usernameTextField.text,
+            let password = passwordTextField.text else {return }
+        if username.isEmpty {
+            alert(message: "Please enter a Username")
             return
-        }
-        if UserDefaults.standard.value(forKey: username) == nil {
+        } else if password.isEmpty {
+            alert(message: "Please enter a password")
+            return
+        } else if UserDefaults.standard.value(forKey: username) == nil {
             alert(message: "No Such User Exists")
             return
         } else {
@@ -91,7 +96,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
             loginButtonAction(loginButton)
         }
-
         return true
     }
 }
