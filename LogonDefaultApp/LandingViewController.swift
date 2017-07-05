@@ -10,8 +10,16 @@ import UIKit
 
 class LandingViewController: UIViewController {
 
-    @IBOutlet weak var LoginButton: UIButton!
-    @IBOutlet weak var SignupButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton! {
+        didSet {
+            loginButton.layer.cornerRadius = 8
+        }
+    }
+    @IBOutlet weak var signupButton: UIButton! {
+        didSet {
+            signupButton.layer.cornerRadius = 8
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -19,16 +27,5 @@ class LandingViewController: UIViewController {
         navigationItem.hidesBackButton = true
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        LoginButton.layer.cornerRadius = 8
-        SignupButton.layer.cornerRadius = 8
-    }
-
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }

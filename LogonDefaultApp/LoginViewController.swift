@@ -48,14 +48,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let username = usernameTextField.text else {
             return
         }
-        if UserDefaults.standard.value(forKey: username) == nil{
-            alert("No Such User Exists")
+        if UserDefaults.standard.value(forKey: username) == nil {
+            alert(message: "No Such User Exists")
             return
-        }
-        else {
+        } else {
             guard let user = UserDefaults.standard.value(forKey: usernameTextField.text!) as? [String: String] else { return }
             if user[UserKeys.password] != passwordTextField.text {
-                alert("Incorect Password")
+                alert(message: "Incorect Password")
                 return
             } else {
                 if let newVC = storyboard?.instantiateViewController(withIdentifier: "UserDataViewController") as? UserDataViewController
@@ -63,10 +62,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     newVC.data = user[UserKeys.id]!
                     navigationController?.pushViewController(newVC, animated: true)
                 }
-
             }
         }
-
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -97,14 +94,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         return true
     }
-
-    func alert(_ message: String){
-        let alertController = UIAlertController(title: "Error", message: "\(message)", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alertController.addAction(action)
-        present(alertController, animated: true)
-    }
-
 }
 
 

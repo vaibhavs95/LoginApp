@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221543E91F0CD52C003C628A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221543E81F0CD52C003C628A /* UIViewController+Extension.swift */; };
 		223D45431F063F48001785E9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D45421F063F46001785E9 /* SignUpViewController.swift */; };
 		228EC32C1F06581C00F202E6 /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D45461F065383001785E9 /* UserDataViewController.swift */; };
 		228EC3301F065D2600F202E6 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228EC32F1F065D2600F202E6 /* UserDefaultKeys.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		221543E81F0CD52C003C628A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		223D45421F063F46001785E9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		223D45461F065383001785E9 /* UserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		228EC32F1F065D2600F202E6 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				223D45421F063F46001785E9 /* SignUpViewController.swift */,
 				228EC32F1F065D2600F202E6 /* UserDefaultKeys.swift */,
 				22C0805E1F0B96C200B5380C /* PasswordViewController.swift */,
+				221543E81F0CD52C003C628A /* UIViewController+Extension.swift */,
 				22F5ABCC1F062F9A008984F9 /* Base.lproj */,
 				22F8D84E1F052A3C00DE17B7 /* Assets.xcassets */,
 				22F8D8531F052A3C00DE17B7 /* Info.plist */,
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221543E91F0CD52C003C628A /* UIViewController+Extension.swift in Sources */,
 				22C0805F1F0B96C200B5380C /* PasswordViewController.swift in Sources */,
 				22F5ABC71F062C8B008984F9 /* LandingViewController.swift in Sources */,
 				228EC32C1F06581C00F202E6 /* UserDataViewController.swift in Sources */,

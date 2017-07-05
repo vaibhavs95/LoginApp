@@ -141,18 +141,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     func validation (_ regex: String, _ evaluateWith: String) -> Bool{
         if !NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: evaluateWith){
             return false
-        } else {
-            return true
         }
+        return true
     }
 
     func labelError(_ message: String,_ color: UIColor? = .red){
         messageLabel.textColor = color
         messageLabel.text = message
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
 }

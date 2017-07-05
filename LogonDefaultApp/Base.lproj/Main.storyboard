@@ -61,8 +61,8 @@
                         <barButtonItem key="backBarButtonItem" title="Home " id="4nP-P1-gOx"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="LoginButton" destination="GHF-Se-K2Q" id="eKB-Ul-M7D"/>
-                        <outlet property="SignupButton" destination="yUS-Jl-cw7" id="aBs-9k-XXK"/>
+                        <outlet property="loginButton" destination="GHF-Se-K2Q" id="eKB-Ul-M7D"/>
+                        <outlet property="signupButton" destination="yUS-Jl-cw7" id="aBs-9k-XXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqH-bY-K5W" userLabel="First Responder" sceneMemberID="firstResponder"/>

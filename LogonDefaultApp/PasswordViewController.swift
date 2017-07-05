@@ -8,10 +8,14 @@
 
 import UIKit
 
-class PasswordViewController: UIViewController {
+class PasswordViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwordButton: UIButton!
-    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var usernameField: UITextField!{
+        didSet {
+            usernameField.delegate = self
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,29 +25,30 @@ class PasswordViewController: UIViewController {
 
     @IBAction func getPassword(_ sender: Any) {
         if (usernameField.text?.isEmpty)! {
-            alert("Please enter a Username")
+            alert(message: "Please enter a Username")
             return
         } else if UserDefaults.standard.value(forKey: usernameField.text!) == nil{
-            alert("No Such User Exists")
+            alert(message: "No Such User Exists")
             return
         }
         guard let user = UserDefaults.standard.value(forKey: usernameField.text!) as? [String : String] else { return }
-        guard let recoveredPassword = user[UserKeys.password] else
-        {return}
-        let alertController = UIAlertController(title: "Et Voila!", message: "Your password is : \"\(String(describing: recoveredPassword))\"", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Back", style: .default, handler: {Void in self.performSegue(withIdentifier: "unwindToLogin", sender: nil)})
-        alertController.addAction(action)
-        present(alertController, animated: true)
-    }
+        guard let recoveredPassword = user[UserKeys.password] else { return }
 
+        let action = UIAlertAction(title: "Back", style: .default, handler: {Void in self.performSegue(withIdentifier: "unwindToLogin", sender: nil)})
+        showAlertController(title: "Et Voila!", message: "Your password is : \"\(String(describing: recoveredPassword))\"", actions: [action])
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    func alert(_ message: String){
-        let alertController = UIAlertController(title: "Error", message: "\(message)", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Back", style: .cancel, handler: nil)
-        alertController.addAction(action)
-        present(alertController, animated: true)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameField {
+            textField.resignFirstResponder()
+            getPassword(passwordButton)
+        }
+        return true
     }
 }
+
+
