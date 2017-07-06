@@ -129,7 +129,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
             confirmPasswordField.becomeFirstResponder()
         default:
             textField.resignFirstResponder()
+            if signUpButton.isEnabled{
             signUpAction(signUpButton)
+            }
         }
         return true
     }

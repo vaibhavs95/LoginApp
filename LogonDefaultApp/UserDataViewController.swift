@@ -12,7 +12,6 @@ class UserDataViewController: UIViewController, UITextFieldDelegate {
 
     var data = String()
     var password = String()
-//    var user: [String: String] = [:]
 
     @IBOutlet weak var firstNameField: UITextField!{
         didSet {firstNameField.delegate = self }

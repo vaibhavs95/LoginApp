@@ -94,7 +94,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
+            if loginButton.isEnabled{
             loginButtonAction(loginButton)
+            }
         }
         return true
     }
