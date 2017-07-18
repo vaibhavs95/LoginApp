@@ -85,7 +85,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         }
         let passRegex = "^(?=.*[A-Z].)(?=.*[!@#$&*^%])(?=.*[0-9])(?=.*[a-z]).{8,16}$"
         if !validation(passRegex, password) {
-            labelError("Password Format : 1 special character, 1 digit, 1 Uppercase and 1 lowercase character, length: 8-32")
+            labelError("Password Format : 1 special character, 1 digit, 1 Uppercase and 1 lowercase character, length: 8-16")
             shake()
             return
         }
